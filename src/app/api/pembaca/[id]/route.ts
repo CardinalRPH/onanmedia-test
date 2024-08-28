@@ -103,7 +103,7 @@ export const PUT = async (
       },
     });
 
-    NextResponse.json({
+    return NextResponse.json({
       updated,
       updatedAt: new Date(),
     });
@@ -140,7 +140,7 @@ export const DELETE = async (
       },
     });
 
-    NextResponse.json({
+    return NextResponse.json({
       deleted,
       deleteddAt: new Date(),
     });
