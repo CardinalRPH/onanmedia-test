@@ -1,8 +1,11 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+# Onanmedia Test
+
+Project dengan FrameWork Next JS dan bahasa pemrograman TypeScript
 
 ## Getting Started
 
-First, run the development server:
+Pertama, jalankan development server:
 
 ```bash
 npm run dev
@@ -13,24 +16,178 @@ pnpm dev
 # or
 bun dev
 ```
+Buka [http://localhost:3000](http://localhost:3000) dengan browser anda untuk melihatnya
+## Reqres API End Point
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### Get List User
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```http
+  GET /api/user?page=
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+| Query | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `page` | `number` | paging |
 
-## Learn More
+#### Get Single User
 
-To learn more about Next.js, take a look at the following resources:
+```http
+  GET /api/user/${id}
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `number` | **Required**. Id dari User |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+#### Get List Resource
 
-## Deploy on Vercel
+```http
+  GET /api/unknown?page=
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Query | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `page` | `number` | paging |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+#### Get Single Resource
+
+```http
+  GET /api/unknown/${id}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `number` | **Required**. Id dari Resource |
+
+#### Create User
+
+```http
+  POST /api/user
+```
+#### Update User
+
+```http
+  PUT /api/user/${id}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `number` | **Required**. Id dari User |
+
+#### Update User
+
+```http
+  PATCH /api/user/${id}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `number` | **Required**. Id dari User |
+
+#### Delete User
+
+```http
+  DELETE /api/user/${id}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `number` | **Required**. Id dari User |
+
+#### Register User
+
+```http
+  POST /api/register/
+```
+
+| Body | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `email`      | `string` | **Required**. email dari User |
+| `password`      | `string` | **Required**. random password |
+
+#### Login User
+
+```http
+  POST /api/login/
+```
+
+| Body | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `email`      | `string` | **Required**. email dari User |
+| `password`      | `string` | **Required**. random password |
+
+#### Delay Response
+
+```http
+  GET /api/user?delay=
+```
+
+| Query | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `delay`      | `number` | delay respon dalam detik |
+
+## Pembaca End Point
+
+#### Create Pembaca
+
+```http
+  POST /api/pembaca/
+```
+
+| Body | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `judul`      | `string` | **Required** |
+| `gambar`      | `string` | **Required** |
+| `deskripsi`      | `string` | **Required** |
+| `tag`      | `array<string>` | **Required** |
+| `trending`      | `boolean` | **Required** |
+
+#### Delete Pembaca
+
+```http
+  DELETE /api/pembaca/${id}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Required**. Id dari pembaca |
+
+#### Get List Pembaca
+
+```http
+  GET /api/pembaca?page=
+```
+
+| Query | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `page`      | `number` | paging |
+
+#### Get Single Pembaca
+
+```http
+  GET /api/pembaca/${id}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `number` | **Required**. Id dari pembaca |
+
+#### Update Pembaca
+
+```http
+  PUT /api/pembaca/${id}
+```
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `number` | **Required**. Id dari pembaca |
+
+| Body | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `judul`      | `string` | **Optional** |
+| `gambar`      | `string` | **Optional** |
+| `deskripsi`      | `string` | **Optional** |
+| `tag`      | `array<string>` | **Optional** |
+| `trending`      | `boolean` | **Optional** |
+
+
+
